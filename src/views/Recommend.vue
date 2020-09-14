@@ -1,13 +1,15 @@
 <template>
-  <div id="recommend">
-    <div class="bgcolor"></div>
-    <banner-list></banner-list>
-    <recommend-list></recommend-list>
-    {{banner}}
+  <div id="recommend" ref="recommend">
+    <div>
+      <!-- <div class="bgcolor"></div> -->
+      <banner-list :banner="banner"></banner-list>
+      <recommend-list :recommend="recommend"></recommend-list>
+    </div>
   </div>
 </template>
 
 <script>
+// import BetterScroll from "better-scroll";
 import { mapState, mapGetters } from "vuex";
 import BannerList from "../components/common/banner-list";
 import RecommendList from "../components/common/recommend-list";
@@ -18,43 +20,48 @@ export default {
     RecommendList,
   },
   data() {
-    return {
-        
-    };
+    return {};
   },
   computed: {
+    // dataUp(){
+    //   const dataup = {banner,recommend} = this;
+    //   return dataup
+    // },
     // 取得仓库中的数据
     ...mapState({
       banner: (state) => state.recommend.banner,
+      recommend: (state) => state.recommend.recommend,
     }),
     ...mapGetters({
-    //   loading: "recommend/loading",
+      loading: "recommend/loading",
     }),
   },
   created() {
     this.$store.dispatch("recommend/requestBannerList");
+    this.$store.dispatch("recommend/requestRecommendList");
   },
-  updated(){
-      console.log(banner);
-      console.log(banner);
-      console.log(banner);
-      console.log(banner);
-      console.log(banner);
-      console.log(banner);
-      console.log(banner);
-  }
+  // watch:{
+  //   dataUp(){
+  //     let 
+  //   }
+  // }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/global-style.scss";
 #recommend {
+  // position: fixed;
+  // left: 0;
+  // right: 0;
+  // top: 0;
+  // bottom: 0;
   .bgcolor {
-    z-index: -1;
+    z-index: 1;
     position: fixed;
     margin-top: -220px;
     height: 300px;
-    width: 375px;
+    width: 100%;
     background-color: $theme-color;
   }
 }

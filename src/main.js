@@ -4,9 +4,12 @@ import router from './router'
 import store from './store'
 import fastclick from 'fastclick'
 import  './assets/iconfont.css'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/swiper-bundle.css'
-Vue.use(VueAwesomeSwiper)
+// import BetterScroll from 'better-scroll'
+// import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import 'swiper/swiper-bundle.css'
+
+
+// Vue.use(BetterScroll)
 
 
 fastclick.attach(document.body);
